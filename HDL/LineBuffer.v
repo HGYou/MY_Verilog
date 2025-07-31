@@ -19,8 +19,21 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+// Height, Width 필요
 
-module LineBuffer(
-
+module LineBuffer#(
+    parameter DWIDTH = 8,
+    parameter P_CH = 32,
+    parameter MEM_SIZE = 512,
+    parameter AWIDTH = 10
+)(
+    input clk,
+    input reset_n,
+    
+    input [DWIDTH * P_CH - 1 :0] Feature_Inputs,
+    input Feature_Inputs_Valid,
+    
+    output [3 * (DWIDTH * P_CH) - 1 : 0] Line3_Outputs,
+    output Line3_Outputs_Valid
     );
 endmodule
