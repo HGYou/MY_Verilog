@@ -37,7 +37,6 @@ module LineBuffer_Bram#(
     
     (*ram_style = "block"*) reg [DWIDTH * P_CH - 1 : 0] ram [0:MEM_SIZE-1];
     
-    
     always@(posedge clk) begin
         if(ce0) begin
             if(we0) begin
