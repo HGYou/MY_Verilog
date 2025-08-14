@@ -100,4 +100,20 @@ module DWC_PE#(
         end
     end
     
+    wire [63:0] Spikes;
+    reg [63:0] Input_Feature_Serial;
+    reg [1:0] Input_Bit_Counter;
+    reg [3:0] Quant_Feature;
+    wire Conv_Valid;
+    
+    always@(posedge clk or negedge reset_n) begin
+        if(!reset_n) begin
+            Input_Bit_Counter <= 2'd0;
+        end else begin
+            if(Conv_Valid)
+                Input_Bit_Counter <= Input_Bit_Counter + 2'd1;
+        end
+    end
+    
+    
 endmodule
